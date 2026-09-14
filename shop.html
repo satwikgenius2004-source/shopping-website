@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora | Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEXORA</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="cart.html">Cart <span id="cartCount">0</span></a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+</header>
+
+<main class="shop-page">
+
+    <div class="shop-header">
+        <div>
+            <p class="small-title">NEXORA STORE</p>
+            <h1>All products</h1>
+            <p>Take your time. Find something you actually want.</p>
+        </div>
+
+        <input
+            type="text"
+            id="searchInput"
+            class="search-box"
+            placeholder="Search products..."
+            onkeyup="searchProducts()"
+        >
+    </div>
+
+    <div class="filters">
+        <button class="filter active" onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button class="filter" onclick="filterProducts('Electronics', this)">
+            Electronics
+        </button>
+
+        <button class="filter" onclick="filterProducts('Fashion', this)">
+            Fashion
+        </button>
+
+        <button class="filter" onclick="filterProducts('Accessories', this)">
+            Accessories
+        </button>
+    </div>
+
+    <div class="product-grid" id="allProducts"></div>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Your Cart - NEXORA</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        NEXORA
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/shop">
+            Shop
+        </a>
+
+        <a href="/cart">
+            Cart
+        </a>
+
+        <a href="/orders">
+            Orders
+        </a>
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="cart-container">
+
+    <h1>
+        Shopping Cart
+    </h1>
+
+
+    <% if (cart && cart.length > 0) { %>
+
+
+        <div class="cart-items">
+
+
+            <% cart.forEach(item => { %>
+
+                <div class="cart-item">
+
+
+                    <img
+                        src="<%= item.product.image %>"
+                        alt="<%= item.product.name %>"
+                    >
+
+
+                    <div>
+
+                        <h3>
+                            <%= item.product.name %>
+                        </h3>
+
+                        <p>
+                            Price:
+                            ₹<%= item.product.price %>
+                        </p>
+
+                        <p>
+                            Quantity:
+                            <%= item.quantity %>
+                        </p>
+
+                        <p>
+                            Total:
+                            ₹<%= item.product.price * item.quantity %>
+                        </p>
+
+
+                        <form
+                            action="/cart/remove/<%= item.product._id %>"
+                            method="POST"
+                        >
+
+                            <button
+                                type="submit"
+                                class="danger-btn"
+                            >
+                                Remove
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+
+        </div>
+
+
+        <div class="cart-summary">
+
+            <h2>
+                Total: ₹<%= total %>
+            </h2>
+
+            <a
+                href="/checkout"
+                class="btn"
+            >
+                Proceed To Checkout
+            </a>
+
+        </div>
+
+
+    <% } else { %>
+
+
+        <div class="empty-cart">
+
+            <h2>
+                Your cart is empty
+            </h2>
+
+            <p>
+                Start shopping and add some products.
+            </p>
+
+            <a
+                href="/shop"
+                class="btn"
+            >
+                Shop Now
+            </a>
+
+        </div>
+
+
+    <% } %>
+
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 NEXORA
+    </p>
+
+</footer>
+<script src="/main.js"></script>
+</body>
+
+</html>

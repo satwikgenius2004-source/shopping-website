@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        <%= product.name %> - NEXORA
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        NEXORA
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/shop">
+            Shop
+        </a>
+
+        <a href="/cart">
+            Cart
+        </a>
+
+        <% if (user) { %>
+
+            <a href="/orders">
+                Orders
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        <% } else { %>
+
+            <a href="/login">
+                Login
+            </a>
+
+        <% } %>
+
+    </div>
+
+</nav>
+
+
+<section class="product-detail">
+
+    <div class="product-image">
+
+        <img
+            src="<%= product.image %>"
+            alt="<%= product.name %>"
+        >
+
+    </div>
+
+
+    <div class="product-info">
+
+        <h1>
+            <%= product.name %>
+        </h1>
+
+        <p class="category">
+            Category:
+            <%= product.category %>
+        </p>
+
+        <h2 class="price">
+            ₹<%= product.price %>
+        </h2>
+
+        <p>
+            <%= product.description %>
+        </p>
+
+        <p>
+            <strong>Stock:</strong>
+            <%= product.stock %>
+        </p>
+
+
+        <% if (product.stock > 0) { %>
+
+            <% if (user) { %>
+
+                <form
+                    action="/cart/add/<%= product._id %>"
+                    method="POST"
+                >
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        max="<%= product.stock %>"
+                    >
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Add To Cart
+                    </button>
+
+                </form>
+
+            <% } else { %>
+
+                <a
+                    href="/login"
+                    class="btn"
+                >
+                    Login To Buy
+                </a>
+
+            <% } %>
+
+        <% } else { %>
+
+            <button disabled>
+                Out of Stock
+            </button>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 NEXORA
+    </p>
+
+</footer>
+<script src="/main.js"></script>
+</body>
+
+</html>

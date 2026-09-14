@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA - Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">NEXORA</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/shop">Shop</a>
+        <a href="/cart">Cart</a>
+
+        <% if (user) { %>
+            <a href="/orders">Orders</a>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <a href="/login">Login</a>
+        <% } %>
+    </div>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Shop Smarter With NEXORA</h1>
+        <p>Premium products. Better prices. Simple shopping.</p>
+        <a href="/shop" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="products-section">
+
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+
+        <% products.forEach(product => { %>
+
+            <div class="product-card">
+
+                <img src="<%= product.image %>" alt="<%= product.name %>">
+
+                <h3><%= product.name %></h3>
+
+                <p class="price">₹<%= product.price %></p>
+
+                <a href="/product/<%= product._id %>" class="btn">
+                    View Product
+                </a>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 NEXORA. All Rights Reserved.</p>
+</footer>
+<script src="/main.js"></script>
+</body>
+</html>

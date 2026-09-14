@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">NEXORA</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">About</a>
+            <a href="cart.html">Cart <span id="cartCount">0</span></a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="small-title">NEW SEASON COLLECTION</p>
+        <h1>Find things<br>you'll love.</h1>
+        <p class="hero-text">
+            Discover stylish products, smart gadgets and everyday essentials
+            at prices that make sense.
+        </p>
+
+        <a href="shop.html" class="primary-btn">Explore Store →</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-card">
+            <span>01</span>
+            <h2>STYLE<br>MEETS<br>EVERYDAY.</h2>
+        </div>
+    </div>
+</section>
+
+<section class="categories">
+    <div class="section-head">
+        <div>
+            <p class="small-title">SHOP BY CATEGORY</p>
+            <h2>What are you looking for?</h2>
+        </div>
+    </div>
+
+    <div class="category-grid">
+        <a href="shop.html?category=Electronics" class="category electronics">
+            <span>01</span>
+            <h3>Electronics</h3>
+            <p>Smart gadgets & accessories →</p>
+        </a>
+
+        <a href="shop.html?category=Fashion" class="category fashion">
+            <span>02</span>
+            <h3>Fashion</h3>
+            <p>Everyday looks →</p>
+        </a>
+
+        <a href="shop.html?category=Accessories" class="category accessories">
+            <span>03</span>
+            <h3>Accessories</h3>
+            <p>Complete your style →</p>
+        </a>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="section-head">
+        <div>
+            <p class="small-title">POPULAR RIGHT NOW</p>
+            <h2>Featured products</h2>
+        </div>
+
+        <a href="shop.html" class="view-all">View all →</a>
+    </div>
+
+    <div class="product-grid" id="featuredProducts"></div>
+</section>
+
+<section class="newsletter">
+    <div>
+        <p class="small-title">STAY IN THE LOOP</p>
+        <h2>Get the good stuff<br>straight to your inbox.</h2>
+    </div>
+
+    <form onsubmit="subscribeUser(event)">
+        <input type="email" placeholder="Your email address" required>
+        <button>Subscribe →</button>
+    </form>
+</section>
+
+<footer>
+    <div class="footer-logo">NEXORA</div>
+    <p>Modern shopping, made simple.</p>
+
+    <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">Contact</a>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
